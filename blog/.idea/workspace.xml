@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="096f3dd4-c84d-4978-9781-c2789ddd4769" name="默认变更列表" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="F:\JDK_docs\apache-maven-3.6.3\maven-repo" />
+        <option name="mavenHome" value="$PROJECT_DIR$/../../JDK_docs/apache-maven-3.6.3" />
+        <option name="userSettingsFile" value="F:\JDK_docs\apache-maven-3.6.3\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2IP1DX75H93GgF8p70upjbxrZcD" />
+  <component name="ProjectViewState">
+    <option name="showExcludedFiles" value="false" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showVisibilityIcons" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/cloud/framework/config" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+  </component>
+  <component name="RebelAgentSelection">
+    <selection>jr</selection>
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\Java_code\blog\src\main\java\com\cloud\framework\config" />
+      <recent name="F:\Java_code\blog\src\main\java\com\cloud\common" />
+      <recent name="F:\Java_code\blog\src\main\java\com\cloud\project\common" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\Java_code\blog\src\main\resources" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.cloud.framework.config" />
+      <recent name="com.cloud.common.exception" />
+      <recent name="com.cloud.project.common.controller" />
+      <recent name="com.cloud" />
+    </key>
+  </component>
+  <component name="RunManager" selected="应用程序.Test">
+    <configuration name="MysqlGenerator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.cloud.MysqlGenerator" />
+      <module name="blog" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.cloud.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MysqlGenerator2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.cloud.MysqlGenerator2" />
+      <module name="blog" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.cloud.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.cloud.Test" />
+      <module name="blog" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.cloud.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BlogApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="blog" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.cloud.BlogApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="应用程序.Test" />
+        <item itemvalue="应用程序.MysqlGenerator2" />
+        <item itemvalue="应用程序.MysqlGenerator" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="096f3dd4-c84d-4978-9781-c2789ddd4769" name="默认变更列表" comment="" />
+      <created>1670068286496</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1670068286496</updated>
+      <workItem from="1670068288176" duration="4207000" />
+      <workItem from="1670119884911" duration="1954000" />
+      <workItem from="1670332657544" duration="2482000" />
+      <workItem from="1670384444178" duration="1218000" />
+      <workItem from="1670462061028" duration="1177000" />
+      <workItem from="1670554385356" duration="596000" />
+      <workItem from="1670653897946" duration="606000" />
+      <workItem from="1671519785052" duration="1870000" />
+      <workItem from="1671859746382" duration="1796000" />
+      <workItem from="1672381035003" duration="1340000" />
+      <workItem from="1674372908985" duration="5724000" />
+      <workItem from="1677237900864" duration="3770000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
