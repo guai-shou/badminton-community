@@ -6,7 +6,7 @@ import com.cloud.badminton.project.friend.entity.vo.FriendRequestVo;
 
 import java.util.List;
 
-public interface FriedRequestService extends IService<FriendRequest> {
+public interface FriendRequestService extends IService<FriendRequest> {
     /*根据ID获取发送好友列表*/
     List<FriendRequestVo> getSendFriendRequest(Long id);
     /*根据ID获取好友请求*/

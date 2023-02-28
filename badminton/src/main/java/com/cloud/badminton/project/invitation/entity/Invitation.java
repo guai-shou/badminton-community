@@ -1,6 +1,7 @@
 package com.cloud.badminton.project.invitation.entity;
 
 import com.baomidou.mybatisplus.annotation.*;
+import com.cloud.badminton.framework.common.check.Publish;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -52,8 +53,4 @@ public class Invitation {
     private List<Tag> tag;
 
     private List<Comment> commentList;
-
-    public interface Publish {}
-
-    public interface Draft {}
 }

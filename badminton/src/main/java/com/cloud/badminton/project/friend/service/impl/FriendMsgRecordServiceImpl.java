@@ -22,7 +22,7 @@ public class FriendMsgRecordServiceImpl extends ServiceImpl<FriendMsgRecordMappe
 
     @Override
     public int insertFriendMsgRecord(FriendMsgRecord friendMsgRecord) {
-        return baseMapper.insert(friendMsgRecord);
+        return baseMapper.insertFriendMsgRecord(friendMsgRecord);
     }
 
     @Override

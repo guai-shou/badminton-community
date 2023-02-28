@@ -1,0 +1,4 @@
+package com.cloud.badminton.framework.common.check;
+
+public interface Status {
+}

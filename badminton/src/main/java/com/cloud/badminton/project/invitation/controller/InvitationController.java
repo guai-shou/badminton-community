@@ -1,5 +1,6 @@
 package com.cloud.badminton.project.invitation.controller;
 
+import com.cloud.badminton.framework.common.check.Publish;
 import com.cloud.badminton.project.invitation.entity.Comment;
 import com.cloud.badminton.project.invitation.entity.Invitation;
 import com.cloud.badminton.project.invitation.entity.vo.InvitationVo;
@@ -15,7 +16,7 @@ import java.util.List;
  * @version 1.0
  * Create by 2023/2/27 14:13
  */
-@RequestMapping("/api/invitation")
+@RequestMapping("/api")
 @RestController
 public class InvitationController {
 
@@ -33,13 +34,13 @@ public class InvitationController {
     }
 
     @PostMapping("/invitation/add")
-    public String  insertInvitation(Invitation invitation) {
+    public String  insertInvitation(@Validated(Publish.class) @RequestBody Invitation invitation) {
         int i = invitationService.insertInvitation(invitation);
         return "插入成功";
     }
 
     @PostMapping("/invitation/update")
-    public String  updateInvitation(@Validated(Invitation.Publish.class) @RequestBody Invitation invitation) {
+    public String  updateInvitation(@Validated(Publish.class) @RequestBody Invitation invitation) {
         final int i = invitationService.updateInvitation(invitation);
         return "插入成功";
     }

@@ -1,8 +1,10 @@
 package com.cloud.badminton.project.user.entity;
 
 import com.baomidou.mybatisplus.annotation.*;
+import com.cloud.badminton.framework.common.check.Publish;
 import lombok.Data;
 
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 /**
@@ -18,8 +20,10 @@ public class User {
 
     private String nickName;
 
+    @NotNull(message = "用户名不能为空", groups = {Publish.class})
     private String name;
 
+    @NotNull(message = "密码不能为空", groups = {Publish.class})
     private String password;
 
     private String avatar;

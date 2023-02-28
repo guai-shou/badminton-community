@@ -15,7 +15,7 @@ import java.util.List;
  * Create by 2023/2/27 14:18
  */
 @Service
-public class FriedServiceImpl extends ServiceImpl<FriendMapper, Friend> implements FriendService {
+public class FriendServiceImpl extends ServiceImpl<FriendMapper, Friend> implements FriendService {
     @Override
     public List<FriendVo> getFriendList(Long uid) {
         return baseMapper.getFriendList(uid);

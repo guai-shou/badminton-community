@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.cloud.badminton.project.friend.entity.FriendRequest;
 import com.cloud.badminton.project.friend.entity.vo.FriendRequestVo;
 import com.cloud.badminton.project.friend.mapper.FriendRequestMapper;
-import com.cloud.badminton.project.friend.service.FriedRequestService;
+import com.cloud.badminton.project.friend.service.FriendRequestService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,7 +15,7 @@ import java.util.List;
  * Create by 2023/2/27 14:19
  */
 @Service
-public class FriendRequestServiceImpl extends ServiceImpl<FriendRequestMapper, FriendRequest> implements FriedRequestService {
+public class FriendRequestServiceImpl extends ServiceImpl<FriendRequestMapper, FriendRequest> implements FriendRequestService {
 
     @Override
     public List<FriendRequestVo> getSendFriendRequest(Long sendId) {

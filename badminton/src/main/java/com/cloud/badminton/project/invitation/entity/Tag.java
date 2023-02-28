@@ -3,7 +3,10 @@ package com.cloud.badminton.project.invitation.entity;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.cloud.badminton.framework.common.check.Publish;
 import lombok.Data;
+
+import javax.validation.constraints.NotNull;
 
 /**
  * @author cloud
@@ -16,5 +19,6 @@ public class Tag {
     @TableId(type = IdType.AUTO)
     private Long id;
 
+    @NotNull(message = "标签名不能为空", groups = {Publish.class})
     private String name;
 }

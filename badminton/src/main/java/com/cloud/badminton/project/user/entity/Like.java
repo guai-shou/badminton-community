@@ -4,7 +4,10 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.cloud.badminton.framework.common.check.Publish;
 import lombok.Data;
+
+import javax.validation.constraints.NotNull;
 
 /**
  * @author cloud
@@ -16,8 +19,10 @@ import lombok.Data;
 public class Like {
     @TableId(type = IdType.AUTO)
     private Long id;
+    @NotNull(message = "用户ID不能为空", groups = {Publish.class})
     @TableField("u_id")
     private Long uid;
+    @NotNull(message = "文章ID不能为空", groups = {Publish.class})
     @TableField("invitation_id")
     private Long invitationId;
 }
