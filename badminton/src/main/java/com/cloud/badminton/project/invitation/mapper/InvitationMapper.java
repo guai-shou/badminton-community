@@ -13,15 +13,15 @@ import java.util.List;
 
 @Mapper
 public interface InvitationMapper extends BaseMapper<Invitation> {
-    @Select("select t.name from invitation inv, tag t, invitation_con_tag ict " +
-            "where #{id}=inv.id and t.id=ict.tag_id and ict.invitation_id=inv.id")
+    @Select("select t.name from tag t, invitation_con_tag ict " +
+            "where t.id=ict.tag_id and ict.invitation_id=#{id}")
     List<String> getInvitationTagList(Long id);
 
     @Update("update invitation ivt set ivt.stars = ivt.stars + 1 where ivt.id = #{id}")
     int incrementInvitationLike(Long id);
 
-    @Select("select c.* from invitation ivt, comment c where #{id} = c.invitation_id;")
-    List<Comment> getInvitationCommentListByInvId(Long id);
+    //@Select("select c.* from invitation ivt, comment c where #{id} = c.invitation_id;")
+    //List<Comment> getInvitationCommentListByInvId(Long id);
 
     List<Invitation> getInvitationList(InvitationVo invitationVo);
 

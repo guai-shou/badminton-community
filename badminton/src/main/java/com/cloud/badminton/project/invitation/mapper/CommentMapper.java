@@ -19,4 +19,6 @@ public interface CommentMapper extends BaseMapper<Comment> {
     List<Comment> getCommentList(Long invitationId);
 
     List<Comment> getComment(Comment comment);
+    
+    int deleteCommentByInvitationId(Long id);
 }

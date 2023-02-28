@@ -7,4 +7,8 @@
             and c.invitation_id = #{invitationId}
         </if>
     </select>
+
+    <delete id="deleteCommentByInvitationId">
+        delete from comment where invitation_id = #{id}
+    </delete>
 </mapper>

@@ -19,14 +19,18 @@ public interface TagService extends IService<Tag> {
     /*根据ID获取标签*/
     Tag getTagById(Long id);
 
-    /*删除标签与文章关联*/
-    int deleteTagMapping(TagMapping tagMapping);
+    /*删除标签与文章全部关联*/
+    int deleteTagMapping(Long invitationId);
     /*以文章为重点, 根据文章添加标签*/
     int insertTagMappingByInvitationId(Long invitationId, List<Long> tagIds);
     /*添加标签与文章关联*/
     int insertTagMapping(TagMapping tagMapping);
     /*更新标签与文章关联*/
     int updateTagMapping(Long invitationId, List<Long> tagIds);
+    /*根据文章ID查询标签*/
+    List<Tag> getTagListByInvitationId(Long invitationId);
+    /*根据文章名称判断是否存在*/
+    int getTagByName(String name);
     /*根据前端查询指定标签 参数可改*/
     List<Tag> getTagListByName(String name);
 }

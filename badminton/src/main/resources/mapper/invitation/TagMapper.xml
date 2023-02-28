@@ -13,9 +13,6 @@
         <if test="invitationId != null and invitationId != ''">
             and invitation_id = #{invitationId}
         </if>
-        <if test="tagId != null and tagId != ''">
-            and tag_id = #{tagId}
-        </if>
     </delete>
 
     <select id="getTagListByName" resultType="com.cloud.badminton.project.invitation.entity.Tag">

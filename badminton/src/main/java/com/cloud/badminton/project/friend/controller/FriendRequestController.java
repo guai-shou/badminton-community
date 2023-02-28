@@ -2,6 +2,7 @@ package com.cloud.badminton.project.friend.controller;
 
 import com.cloud.badminton.framework.common.check.Publish;
 import com.cloud.badminton.framework.common.check.Status;
+import com.cloud.badminton.framework.common.result.ResultVo;
 import com.cloud.badminton.project.friend.entity.FriendRequest;
 import com.cloud.badminton.project.friend.entity.vo.FriendRequestVo;
 import com.cloud.badminton.project.friend.service.FriendRequestService;
@@ -35,27 +36,35 @@ public class FriendRequestController {
     }
     /*新增好友请求*/
     @PostMapping("/friendRequest/add")
-    String insertFriendRequest(@Validated(Publish.class) @RequestBody FriendRequest friendRequest) {
+    ResultVo insertFriendRequest(@Validated(Publish.class) @RequestBody FriendRequest friendRequest) {
         final int i = friendRequestService.insertFriendRequest(friendRequest);
-        return "插入成功";
+        if (i > 0)
+            return ResultVo.success();
+        return ResultVo.fail();
     }
     /*删除好友请求*/
     @DeleteMapping("/friendRequest/delete")
-    String deleteFriendRequest(@RequestBody List<Long> ids) {
+    ResultVo deleteFriendRequest(@RequestBody List<Long> ids) {
         final int i = friendRequestService.deleteFriendRequest(ids);
-        return "删除成功";
+        if (i > 0)
+            return ResultVo.success();
+        return ResultVo.fail();
     }
 
     /*更新好友请求状态*/
     @PostMapping("/friendRequest/updateStatus")
-    String updateFriendRequestStatus(@Validated(Status.class) @RequestBody FriendRequest friendRequest) {
+    ResultVo updateFriendRequestStatus(@Validated(Status.class) @RequestBody FriendRequest friendRequest) {
         final int i = friendRequestService.updateFriendRequestStatus(friendRequest);
-        return "更新成功";
+        if (i > 0)
+            return ResultVo.success();
+        return ResultVo.fail();
     }
     /*更新读取状态*/
     @PostMapping("/friendRequest/updateRead")
-    String updateFriendRequestRead(@Validated(Publish.class) @RequestBody FriendRequest friendRequest) {
+    ResultVo updateFriendRequestRead(@Validated(Publish.class) @RequestBody FriendRequest friendRequest) {
         final int i = friendRequestService.updateFriendRequestRead(friendRequest);
-        return "更新成功";
+        if (i > 0)
+            return ResultVo.success();
+        return ResultVo.fail();
     }
 }

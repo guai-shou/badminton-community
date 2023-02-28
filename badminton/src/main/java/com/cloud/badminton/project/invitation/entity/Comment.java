@@ -1,9 +1,13 @@
 package com.cloud.badminton.project.invitation.entity;
 
 import com.baomidou.mybatisplus.annotation.*;
+import com.cloud.badminton.framework.common.check.Publish;
 import lombok.Data;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
+import java.util.List;
 
 /**
  * @author cloud
@@ -12,14 +16,17 @@ import java.time.LocalDate;
  */
 @Data
 @TableName("comment")
-public class Comment {
+public class Comment implements Comparable<Comment> {
     @TableId(type = IdType.AUTO)
     private Long id;
 
+    @NotNull(message = "评论昵称不能为空", groups = {Publish.class})
     private String nickName;
 
+    @NotBlank(message = "评论内容不能为空", groups = {Publish.class})
     private String content;
 
+    @NotNull(message = "文章ID不能为空", groups = {Publish.class})
     @TableField("invitation_id")
     private Long invitationId;
 
@@ -31,11 +38,20 @@ public class Comment {
 
     private String replyNickName;
 
+    @NotNull(message = "是否为博主评论不能为空", groups = {Publish.class})
     private Integer adminReplay;
 
+    @NotNull(message = "评论用户ID不能为空", groups = {Publish.class})
     @TableField("user_id")
     private Long userId;
 
     @TableField(value = "create_time", fill = FieldFill.INSERT)
     private LocalDate createTime;
+
+    private List<Comment> childComment;
+
+    @Override
+    public int compareTo(Comment o) {
+        return this.getCreateTime().compareTo(o.getCreateTime());
+    }
 }

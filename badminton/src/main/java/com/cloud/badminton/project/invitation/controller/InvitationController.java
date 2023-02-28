@@ -1,6 +1,7 @@
 package com.cloud.badminton.project.invitation.controller;
 
 import com.cloud.badminton.framework.common.check.Publish;
+import com.cloud.badminton.framework.common.result.ResultVo;
 import com.cloud.badminton.project.invitation.entity.Comment;
 import com.cloud.badminton.project.invitation.entity.Invitation;
 import com.cloud.badminton.project.invitation.entity.vo.InvitationVo;
@@ -34,21 +35,27 @@ public class InvitationController {
     }
 
     @PostMapping("/invitation/add")
-    public String  insertInvitation(@Validated(Publish.class) @RequestBody Invitation invitation) {
+    public ResultVo  insertInvitation(@Validated(Publish.class) @RequestBody Invitation invitation) {
         int i = invitationService.insertInvitation(invitation);
-        return "插入成功";
+        if (i > 0)
+            return ResultVo.success();
+        return ResultVo.fail();
     }
 
     @PostMapping("/invitation/update")
-    public String  updateInvitation(@Validated(Publish.class) @RequestBody Invitation invitation) {
+    public ResultVo  updateInvitation(@Validated(Publish.class) @RequestBody Invitation invitation) {
         final int i = invitationService.updateInvitation(invitation);
-        return "插入成功";
+        if (i > 0)
+            return ResultVo.success();
+        return ResultVo.fail();
     }
 
     @DeleteMapping("/invitation/{id}")
-    public String  deleteInvitationById(@PathVariable Long id) {
+    public ResultVo  deleteInvitationById(@PathVariable Long id) {
         final int i = invitationService.deleteInvitationById(id);
-        return "插入成功";
+        if (i > 0)
+            return ResultVo.success();
+        return ResultVo.fail();
     }
 
     @GetMapping("/invitationTagList/{id}")
@@ -57,9 +64,11 @@ public class InvitationController {
     }
 
     @PostMapping("/invitation/{id}")
-    public String incrementInvitationLike(@PathVariable Long id) {
+    public ResultVo incrementInvitationLike(@PathVariable Long id) {
         int i = invitationService.incrementInvitationLike(id);
-        return "插入成功";
+        if (i > 0)
+            return ResultVo.success();
+        return ResultVo.fail();
     }
 
     @GetMapping("/invitationCommentList/{id}")
@@ -68,9 +77,11 @@ public class InvitationController {
     }
 
     @DeleteMapping("/invitation")
-    public String batchDeleteInvitationByIds(@RequestBody List<Long> ids) {
+    public ResultVo batchDeleteInvitationByIds(@RequestBody List<Long> ids) {
         int i = invitationService.batchDeleteInvitationByIds(ids);
-        return "插入成功";
+        if (i > 0)
+            return ResultVo.success();
+        return ResultVo.fail();
     }
 
     @GetMapping("/invitation")

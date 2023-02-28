@@ -48,7 +48,7 @@ public class Invitation {
 
     @NotNull(message = "分类ID不能为空", groups = {Publish.class})
     @TableField(exist = false)
-    private Long tagId;
+    private List<Tag> tagIds;
 
     private List<Tag> tag;
 

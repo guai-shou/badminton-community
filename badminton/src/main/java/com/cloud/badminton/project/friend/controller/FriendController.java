@@ -1,6 +1,7 @@
 package com.cloud.badminton.project.friend.controller;
 
 import com.cloud.badminton.framework.common.check.Publish;
+import com.cloud.badminton.framework.common.result.ResultVo;
 import com.cloud.badminton.project.friend.entity.Friend;
 import com.cloud.badminton.project.friend.entity.vo.FriendVo;
 import com.cloud.badminton.project.friend.service.FriendService;
@@ -29,15 +30,19 @@ public class FriendController {
     }
     /*增加好友*/
     @PostMapping("/friend/add")
-    String insertFriend(@Validated(Publish.class) @RequestBody Friend friend) {
+    ResultVo insertFriend(@Validated(Publish.class) @RequestBody Friend friend) {
         final int i = friendService.insertFriend(friend);
-        return "添加成功";
+        if (i > 0)
+            return ResultVo.success();
+        return ResultVo.fail();
     }
     /*删除好友*/
     @DeleteMapping("/friend/delte")
-    String deleteFriend(@Validated(Publish.class) @RequestBody Friend friend) {
+    ResultVo deleteFriend(@Validated(Publish.class) @RequestBody Friend friend) {
         final int i = friendService.deleteFriend(friend);
-        return "删除成功";
+        if (i > 0)
+            return ResultVo.success();
+        return ResultVo.fail();
     }
     /*根据前端信息搜索指定好友*/
     @PostMapping("/friend")

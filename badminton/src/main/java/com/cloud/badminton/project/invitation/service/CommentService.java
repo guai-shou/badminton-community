@@ -20,6 +20,9 @@ public interface CommentService extends IService<Comment> {
     Comment getCommentById(Long id);
     /*获取全部评论*/
     List<Comment> getCommentList();
+    /*根据文章ID删除评论*/
+    int deleteCommentByInvitationId(Long id);
     /*根据前端查询评论  参数可改*/
     List<Comment> getComment(Comment comment);
+
 }

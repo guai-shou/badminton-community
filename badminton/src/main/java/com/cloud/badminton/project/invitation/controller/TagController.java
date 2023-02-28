@@ -1,6 +1,7 @@
 package com.cloud.badminton.project.invitation.controller;
 
 import com.cloud.badminton.framework.common.check.Publish;
+import com.cloud.badminton.framework.common.result.ResultVo;
 import com.cloud.badminton.project.invitation.entity.Tag;
 import com.cloud.badminton.project.invitation.service.TagService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,21 +29,27 @@ public class TagController {
     }
     /*插入标签*/
     @PostMapping("/tag/add")
-    String insertTag(@Validated(Publish.class) @RequestBody Tag tag) {
+    ResultVo insertTag(@Validated(Publish.class) @RequestBody Tag tag) {
         final int i = tagService.insertTag(tag);
-        return "插入成功";
+        if (i > 0)
+            return ResultVo.success();
+        return ResultVo.fail();
     }
     /*更新标签*/
     @PostMapping("/tag/update")
-    String updateTag(@Validated(Publish.class) @RequestBody Tag tag) {
+    ResultVo updateTag(@Validated(Publish.class) @RequestBody Tag tag) {
         final int i = tagService.updateTag(tag);
-        return "更新成功";
+        if (i > 0)
+            return ResultVo.success();
+        return ResultVo.fail();
     }
     /*根据ID删除标签*/
     @DeleteMapping("/tag")
-    String deleteTagByIds(@RequestBody List<Integer> ids) {
+    ResultVo deleteTagByIds(@RequestBody List<Integer> ids) {
         final int i = tagService.deleteTagByIds(ids);
-        return "删除成功";
+        if (i > 0)
+            return ResultVo.success();
+        return ResultVo.fail();
     }
 
     /*根据前端查询指定标签 参数可改*/
