@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cloud.badminton.project.invitation.mapper.InvitationMapper">
+    <resultMap id="InvitationWithoutTag" type="com.cloud.badminton.project.invitation.entity.Invitation">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="title" column="title" jdbcType="VARCHAR"/>
+        <result property="content" column="content" jdbcType="VARCHAR"/>
+        <result property="img" column="img" jdbcType="VARCHAR"/>
+        <result property="uid" column="uid" jdbcType="INTEGER"/>
+        <result property="stars" column="stars" jdbcType="VARCHAR"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+        <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+        <result property="deleted" column="deleted" jdbcType="INTEGER"/>
+        <collection property="tag" javaType="com.cloud.badminton.project.invitation.entity.Tag" >
+            <result property="id" column="t_id"/>
+            <result property="name" column="t_name"/>
+        </collection>
+    </resultMap>
+
+    <resultMap id="Invitation" type="com.cloud.badminton.project.invitation.entity.Invitation">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="title" column="title" jdbcType="VARCHAR"/>
+        <result property="content" column="content" jdbcType="VARCHAR"/>
+        <result property="img" column="img" jdbcType="VARCHAR"/>
+        <result property="uid" column="uid" jdbcType="INTEGER"/>
+        <result property="stars" column="stars" jdbcType="VARCHAR"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+        <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+        <result property="deleted" column="deleted" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <select id="getInvitationList" resultMap="Invitation">
+        select * from invitation ivt
+        where ivt.deleted != 1
+        <if test="title != null and  title != ''">
+            and ivt.title like concat('%', #{title}, '%')
+        </if>
+        <if test="beginTime != null and beginTime != ''">
+            and date_format(ivt.create_time, '%y%m%d %h%i%s') >= date_format(#{beginTime}, '%y%m%d %h%i%s')
+        </if>
+        <if test="endTime != null and endTime != ''">
+            and date_format(ivt.create_time, '%y%m%d %h%i%s') >= date_format(#{endTime}, '%y%m%d %h%i%s')
+        </if>
+    </select>
+
+
+</mapper>

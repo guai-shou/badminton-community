@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cloud.badminton.project.invitation.mapper.TagMapper">
+    <insert id="insertTagMappingByInvitationId">
+        insert into invitation_con_tag(tag_id, invitation_id) values
+        <foreach item="tag" collection="tagIds" separator=",">
+            (#{tag}, #{invitationId})
+        </foreach>
+    </insert>
+
+    <delete id="deleteTagMapping">
+        delete from invitation_con_tag where 1 = 1
+        <if test="invitationId != null and invitationId != ''">
+            and invitation_id = #{invitationId}
+        </if>
+        <if test="tagId != null and tagId != ''">
+            and tag_id = #{tagId}
+        </if>
+    </delete>
+
+    <select id="getTagListByName" resultType="com.cloud.badminton.project.invitation.entity.Tag">
+        select t.* from tag t where 1=1
+        <if test="name != null and name != ''">
+            and t.name like concat('%', #{name}, '%')
+        </if>
+    </select>
+
+</mapper>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cloud.badminton.project.invitation.mapper.CommentMapper">
+    <select id="getComment" resultType="com.cloud.badminton.project.invitation.entity.Comment">
+        select c.* from comment c where 1=1
+        <if test="invitationId != null and invitationId != ''">
+            and c.invitation_id = #{invitationId}
+        </if>
+    </select>
+</mapper>
