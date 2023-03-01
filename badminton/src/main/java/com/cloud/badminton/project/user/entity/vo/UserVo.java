@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.Data;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 /**
  * @author cloud
@@ -25,5 +26,5 @@ public class UserVo {
 
     private String description;
 
-    private LocalDate createTime;
+    private LocalDateTime createTime;
 }

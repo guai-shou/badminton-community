@@ -7,6 +7,7 @@ import org.apache.ibatis.reflection.MetaObject;
 import org.slf4j.LoggerFactory;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 /**
  * @author cloud
@@ -19,12 +20,12 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
     @Override
     public void insertFill(MetaObject metaObject) {
         log.info("start insert fill ...");
-        this.strictInsertFill(metaObject, "createTime", LocalDate.class, LocalDate.now());
+        this.strictInsertFill(metaObject, "createTime", LocalDateTime.class, LocalDateTime.now());
     }
 
     @Override
     public void updateFill(MetaObject metaObject) {
         log.info("start update fill ...");
-        this.strictUpdateFill(metaObject, "updateTime", LocalDate.class, LocalDate.now());
+        this.strictUpdateFill(metaObject, "updateTime", LocalDateTime.class, LocalDateTime.now());
     }
 }
