@@ -21,7 +21,6 @@ public class UserVo {
 
     private String avatar;
 
-    @TableField("space_bg")
     private String spaceBg;
 
     private String description;

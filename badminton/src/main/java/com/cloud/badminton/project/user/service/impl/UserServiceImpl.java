@@ -2,12 +2,14 @@ package com.cloud.badminton.project.user.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.cloud.badminton.project.user.entity.User;
+import com.cloud.badminton.project.user.entity.vo.UserPasswordVo;
 import com.cloud.badminton.project.user.entity.vo.UserVo;
 import com.cloud.badminton.project.user.mapper.UserMapper;
 import com.cloud.badminton.project.user.service.UserService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * @author cloud
@@ -24,6 +26,11 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
     @Override
     public int insertUser(User user) {
+        /*如果不存在昵称, 用户名就是昵称*/
+        final boolean present = Optional.ofNullable(user.getNickName()).isPresent();
+        if (!present) {
+            user.setNickName(user.getName());
+        }
         return baseMapper.insert(user);
     }
 
@@ -32,9 +39,10 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         return baseMapper.deleteBatchIds(ids);
     }
 
+    /*更新用户基本信息*/
     @Override
     public int updateUser(User user) {
-        return baseMapper.updateById(user);
+        return baseMapper.updateUserInfo(user);
     }
 
     @Override
@@ -45,6 +53,11 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     @Override
     public String getUserPassword(String name) {
         return baseMapper.getUserPassword(name);
+    }
+
+    @Override
+    public int updateUserPassword(UserPasswordVo userPasswordVo) {
+        return baseMapper.updateUserPassword(userPasswordVo);
     }
 
     @Override

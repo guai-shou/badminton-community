@@ -27,28 +27,29 @@ public class FriendMsgRecordController {
     List<FriendMsgRecord> getFriendMsgRecord(@PathVariable Long sendId, @PathVariable Long receiveId) {
         return friendMsgRecordService.getFriendMsgRecord(sendId, receiveId);
     }
-    /*增加聊天记录*/
-    @PostMapping("/friendMsgRecord/add")
-    ResultVo insertFriendMsgRecord(@Validated(Publish.class) @RequestBody FriendMsgRecord friendMsgRecord) {
-        final int i = friendMsgRecordService.insertFriendMsgRecord(friendMsgRecord);
-        if (i > 0)
-            return ResultVo.success();
-        return ResultVo.fail();
-    }
-    /*撤销聊天记录*/
-    @PostMapping("/friendMsgRecord/undo")
-    ResultVo updateFriendMsgRecordUndo(@Validated(Publish.class) @RequestBody FriendMsgRecord friendMsgRecord) {
-        final int i = friendMsgRecordService.updateFriendMsgRecordUndo(friendMsgRecord);
-        if (i > 0)
-            return ResultVo.success();
-        return ResultVo.fail();
-    }
-    /*更新已读状态*/
-    ResultVo updateFriendMsgRecordRead(@Validated(Publish.class) @RequestBody FriendMsgRecord friendMsgRecord) {
-        final int i = friendMsgRecordService.updateFriendMsgRecordRead(friendMsgRecord);
-        if (i > 0)
-            return ResultVo.success();
-        return ResultVo.fail();
-    }
+    /*增加聊天记录, 使用WebSocket*/
+    //@PostMapping("/friendMsgRecord/add")
+    //ResultVo insertFriendMsgRecord(@Validated(Publish.class) @RequestBody FriendMsgRecord friendMsgRecord) {
+    //    final int i = friendMsgRecordService.insertFriendMsgRecord(friendMsgRecord);
+    //    if (i > 0)
+    //        return ResultVo.success();
+    //    return ResultVo.fail();
+    //}
+    /*撤销聊天记录, 使用WebSocket*/
+    //@PostMapping("/friendMsgRecord/undo")
+    //ResultVo updateFriendMsgRecordUndo(@Validated(Publish.class) @RequestBody FriendMsgRecord friendMsgRecord) {
+    //    final int i = friendMsgRecordService.updateFriendMsgRecordUndo(friendMsgRecord);
+    //    if (i > 0)
+    //        return ResultVo.success();
+    //    return ResultVo.fail();
+    //}
+    /*更新已读状态, 使用WebSocket*/
+    //@PostMapping("/friendMsgRecord/read")
+    //ResultVo updateFriendMsgRecordRead(@Validated(Publish.class) @RequestBody FriendMsgRecord friendMsgRecord) {
+    //    final int i = friendMsgRecordService.updateFriendMsgRecordRead(friendMsgRecord);
+    //    if (i > 0)
+    //        return ResultVo.success();
+    //    return ResultVo.fail();
+    //}
 
 }

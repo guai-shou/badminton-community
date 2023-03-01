@@ -34,14 +34,14 @@ public class FriendRequestController {
     List<FriendRequestVo> getReceiveFriendRequest(@PathVariable Long id) {
         return friendRequestService.getReceiveFriendRequest(id);
     }
-    /*新增好友请求*/
-    @PostMapping("/friendRequest/add")
-    ResultVo insertFriendRequest(@Validated(Publish.class) @RequestBody FriendRequest friendRequest) {
-        final int i = friendRequestService.insertFriendRequest(friendRequest);
-        if (i > 0)
-            return ResultVo.success();
-        return ResultVo.fail();
-    }
+    /*新增好友请求, 使用WebSocket*/
+    //@PostMapping("/friendRequest/add")
+    //ResultVo insertFriendRequest(@Validated(Publish.class) @RequestBody FriendRequest friendRequest) {
+    //    final int i = friendRequestService.insertFriendRequest(friendRequest);
+    //    if (i > 0)
+    //        return ResultVo.success();
+    //    return ResultVo.fail();
+    //}
     /*删除好友请求*/
     @DeleteMapping("/friendRequest/delete")
     ResultVo deleteFriendRequest(@RequestBody List<Long> ids) {
@@ -51,20 +51,20 @@ public class FriendRequestController {
         return ResultVo.fail();
     }
 
-    /*更新好友请求状态*/
-    @PostMapping("/friendRequest/updateStatus")
-    ResultVo updateFriendRequestStatus(@Validated(Status.class) @RequestBody FriendRequest friendRequest) {
-        final int i = friendRequestService.updateFriendRequestStatus(friendRequest);
-        if (i > 0)
-            return ResultVo.success();
-        return ResultVo.fail();
-    }
-    /*更新读取状态*/
-    @PostMapping("/friendRequest/updateRead")
-    ResultVo updateFriendRequestRead(@Validated(Publish.class) @RequestBody FriendRequest friendRequest) {
-        final int i = friendRequestService.updateFriendRequestRead(friendRequest);
-        if (i > 0)
-            return ResultVo.success();
-        return ResultVo.fail();
-    }
+    /*更新好友请求状态, 使用WebSocket*/
+    //@PostMapping("/friendRequest/updateStatus")
+    //ResultVo updateFriendRequestStatus(@Validated(Status.class) @RequestBody FriendRequest friendRequest) {
+    //    final int i = friendRequestService.updateFriendRequestStatus(friendRequest);
+    //    if (i > 0)
+    //        return ResultVo.success();
+    //    return ResultVo.fail();
+    //}
+    /*更新读取状态, 使用WebSocket*/
+    //@PostMapping("/friendRequest/updateRead")
+    //ResultVo updateFriendRequestRead(@Validated(Publish.class) @RequestBody FriendRequest friendRequest) {
+    //    final int i = friendRequestService.updateFriendRequestRead(friendRequest);
+    //    if (i > 0)
+    //        return ResultVo.success();
+    //    return ResultVo.fail();
+    //}
 }

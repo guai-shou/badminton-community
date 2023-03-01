@@ -37,7 +37,7 @@ public class FriendController {
         return ResultVo.fail();
     }
     /*删除好友*/
-    @DeleteMapping("/friend/delte")
+    @DeleteMapping("/friend/delete")
     ResultVo deleteFriend(@Validated(Publish.class) @RequestBody Friend friend) {
         final int i = friendService.deleteFriend(friend);
         if (i > 0)

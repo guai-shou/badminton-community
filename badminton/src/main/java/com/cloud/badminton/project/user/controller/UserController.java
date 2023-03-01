@@ -1,8 +1,10 @@
 package com.cloud.badminton.project.user.controller;
 
 import com.cloud.badminton.framework.common.check.Publish;
+import com.cloud.badminton.framework.common.check.Update;
 import com.cloud.badminton.framework.common.result.ResultVo;
 import com.cloud.badminton.project.user.entity.User;
+import com.cloud.badminton.project.user.entity.vo.UserPasswordVo;
 import com.cloud.badminton.project.user.entity.vo.UserVo;
 import com.cloud.badminton.project.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,8 +48,16 @@ public class UserController {
     }
     /*更新用户*/
     @PostMapping("/user/update")
-    ResultVo updateUser(@RequestBody User user) {
+    ResultVo updateUserInfo(@Validated(Update.class) @RequestBody User user) {
         final int i = userService.updateUser(user);
+        if (i > 0)
+            return ResultVo.success();
+        return ResultVo.fail();
+    }
+    /*更新密码*/
+    @PostMapping("/user/updatePassword")
+    ResultVo updateUserPassword(@RequestBody UserPasswordVo userPasswordVo) {
+        final int i = userService.updateUserPassword(userPasswordVo);
         if (i > 0)
             return ResultVo.success();
         return ResultVo.fail();
@@ -57,8 +67,8 @@ public class UserController {
     ResultVo getUserName(@RequestBody String name) {
         final int i = userService.getUserName(name);
         if (i > 0)
-            return ResultVo.success();
-        return ResultVo.fail();
+            return ResultVo.fail();
+        return ResultVo.success();
     }
     /*根据前端条件查询用户 参数可加字段*/
     @GetMapping("/user")
