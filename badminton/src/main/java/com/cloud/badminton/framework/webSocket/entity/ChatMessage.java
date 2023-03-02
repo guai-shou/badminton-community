@@ -2,7 +2,10 @@ package com.cloud.badminton.framework.webSocket.entity;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -13,6 +16,9 @@ import java.time.LocalDateTime;
  * Create by 2023/3/1 15:16
  */
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 public class ChatMessage {
     /*发送方ID*/
     private Long senderId;

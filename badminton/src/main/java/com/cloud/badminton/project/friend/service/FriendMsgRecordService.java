@@ -3,6 +3,7 @@ package com.cloud.badminton.project.friend.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.cloud.badminton.project.friend.entity.FriendMsgRecord;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 public interface FriendMsgRecordService extends IService<FriendMsgRecord> {
@@ -13,5 +14,5 @@ public interface FriendMsgRecordService extends IService<FriendMsgRecord> {
     /*撤销聊天记录*/
     int updateFriendMsgRecordUndo(FriendMsgRecord friendMsgRecord);
     /*更新已读状态*/
-    int updateFriendMsgRecordRead(FriendMsgRecord friendMsgRecord);
+    int updateFriendMsgRecordRead(FriendMsgRecord friendMsgRecord, LocalDateTime readTime);
 }

@@ -6,6 +6,7 @@ import com.cloud.badminton.project.friend.mapper.FriendMsgRecordMapper;
 import com.cloud.badminton.project.friend.service.FriendMsgRecordService;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -31,7 +32,7 @@ public class FriendMsgRecordServiceImpl extends ServiceImpl<FriendMsgRecordMappe
     }
 
     @Override
-    public int updateFriendMsgRecordRead(FriendMsgRecord friendMsgRecord) {
-        return baseMapper.updateFriendMsgRecordRead(friendMsgRecord);
+    public int updateFriendMsgRecordRead(FriendMsgRecord friendMsgRecord, LocalDateTime readTime) {
+        return baseMapper.updateFriendMsgRecordRead(friendMsgRecord, readTime);
     }
 }

@@ -32,7 +32,7 @@ public class SessionPool {
     }
 
     /*对某个用户发送消息*/
-    public static void sendMessage(Session session, ChatMessage chatMessage) {
+    public static void sendMessage(Session session, Object chatMessage) {
         try {
             session.getAsyncRemote().sendText(objectMapper.writeValueAsString(chatMessage));
         } catch (JsonProcessingException e) {

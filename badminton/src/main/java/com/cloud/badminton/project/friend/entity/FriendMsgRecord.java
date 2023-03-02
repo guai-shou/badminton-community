@@ -2,7 +2,9 @@ package com.cloud.badminton.project.friend.entity;
 
 import com.baomidou.mybatisplus.annotation.*;
 import com.cloud.badminton.framework.common.check.Publish;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -15,6 +17,8 @@ import java.time.LocalDateTime;
  * Create by 2023/2/27 14:08
  */
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 @TableName("friend_msg_record")
 public class FriendMsgRecord {
     @TableId(type = IdType.AUTO)
