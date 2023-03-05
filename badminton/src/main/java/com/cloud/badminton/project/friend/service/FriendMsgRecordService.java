@@ -14,5 +14,5 @@ public interface FriendMsgRecordService extends IService<FriendMsgRecord> {
     /*撤销聊天记录*/
     int updateFriendMsgRecordUndo(FriendMsgRecord friendMsgRecord);
     /*更新已读状态*/
-    int updateFriendMsgRecordRead(FriendMsgRecord friendMsgRecord, LocalDateTime readTime);
+    int updateFriendMsgRecordRead(FriendMsgRecord friendMsgRecord);
 }

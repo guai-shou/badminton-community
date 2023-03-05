@@ -10,5 +10,7 @@ import lombok.Data;
 @Data
 public class FriendVo {
     private Long id;
+    private Long uid;
     private String nickName;
+    private String avatar;
 }

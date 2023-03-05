@@ -32,7 +32,7 @@ public class FriendMsgRecordServiceImpl extends ServiceImpl<FriendMsgRecordMappe
     }
 
     @Override
-    public int updateFriendMsgRecordRead(FriendMsgRecord friendMsgRecord, LocalDateTime readTime) {
-        return baseMapper.updateFriendMsgRecordRead(friendMsgRecord, readTime);
+    public int updateFriendMsgRecordRead(FriendMsgRecord friendMsgRecord) {
+        return baseMapper.updateFriendMsgRecordRead(friendMsgRecord);
     }
 }

@@ -6,6 +6,7 @@ import com.cloud.badminton.framework.common.check.Status;
 import lombok.Data;
 
 import javax.validation.constraints.NotNull;
+import java.time.LocalDateTime;
 
 /**
  * @author cloud
@@ -34,4 +35,6 @@ public class FriendRequest {
 
     private String requestMsg;
 
+    @TableField(value = "create_time", fill = FieldFill.INSERT)
+    private LocalDateTime createTime;
 }

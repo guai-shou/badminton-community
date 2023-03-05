@@ -17,4 +17,6 @@ public interface FriendService extends IService<Friend> {
     List<FriendVo> getFriendByName(String name);
     /*更新好友状态*/
     //int updateFriendStatus(Friend friend);
+    /*判断是否是好友*/
+    int isFriend(Long uid, Long friendId);
 }

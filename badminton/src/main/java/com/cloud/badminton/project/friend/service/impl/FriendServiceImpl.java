@@ -23,6 +23,11 @@ public class FriendServiceImpl extends ServiceImpl<FriendMapper, Friend> impleme
 
     @Override
     public int insertFriend(Friend friend) {
+        final List<FriendVo> friendList = getFriendList(friend.getUid());
+        for (FriendVo friendVo : friendList) {
+            if (friendVo.getUid().equals(friend.getFriendId()))
+                return 0;
+        }
         return baseMapper.insert(friend);
     }
 
@@ -34,6 +39,11 @@ public class FriendServiceImpl extends ServiceImpl<FriendMapper, Friend> impleme
     @Override
     public List<FriendVo> getFriendByName(String name) {
         return baseMapper.getFriendByName(name);
+    }
+
+    @Override
+    public int isFriend(Long uid, Long friendId) {
+        return baseMapper.isFriend(uid, friendId);
     }
 
 }
