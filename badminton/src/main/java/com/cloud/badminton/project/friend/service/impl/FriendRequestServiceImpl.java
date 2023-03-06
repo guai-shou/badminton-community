@@ -34,7 +34,9 @@ public class FriendRequestServiceImpl extends ServiceImpl<FriendRequestMapper, F
 
     @Override
     public int deleteFriendRequest(List<Long> ids) {
-        return baseMapper.deleteBatchIds(ids);
+        if (ids.size() > 0)
+            return baseMapper.deleteFriendRequest(ids);
+        return 0;
     }
 
     @Override

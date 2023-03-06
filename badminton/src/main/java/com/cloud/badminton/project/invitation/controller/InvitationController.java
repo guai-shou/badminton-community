@@ -63,7 +63,8 @@ public class InvitationController {
         return invitationService.getInvitationTagList(id);
     }
 
-    @PostMapping("/invitation/{id}")
+    /*TODO 利用特殊的数据结构记录文章的点赞*/
+    @PostMapping("/invitation/increment/{id}")
     public ResultVo incrementInvitationLike(@PathVariable Long id) {
         int i = invitationService.incrementInvitationLike(id);
         if (i > 0)

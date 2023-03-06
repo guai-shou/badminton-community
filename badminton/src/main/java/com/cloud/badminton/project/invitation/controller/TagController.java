@@ -1,6 +1,7 @@
 package com.cloud.badminton.project.invitation.controller;
 
 import com.cloud.badminton.framework.common.check.Publish;
+import com.cloud.badminton.framework.common.check.Update;
 import com.cloud.badminton.framework.common.result.ResultVo;
 import com.cloud.badminton.project.invitation.entity.Tag;
 import com.cloud.badminton.project.invitation.service.TagService;
@@ -37,7 +38,7 @@ public class TagController {
     }
     /*更新标签*/
     @PostMapping("/tag/update")
-    ResultVo updateTag(@Validated(Publish.class) @RequestBody Tag tag) {
+    ResultVo updateTag(@Validated(Update.class) @RequestBody Tag tag) {
         final int i = tagService.updateTag(tag);
         if (i > 0)
             return ResultVo.success();

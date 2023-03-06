@@ -56,7 +56,7 @@ public class UserController {
     }
     /*更新密码*/
     @PostMapping("/user/updatePassword")
-    ResultVo updateUserPassword(@RequestBody UserPasswordVo userPasswordVo) {
+    ResultVo updateUserPassword(@Validated @RequestBody UserPasswordVo userPasswordVo) {
         final int i = userService.updateUserPassword(userPasswordVo);
         if (i > 0)
             return ResultVo.success();

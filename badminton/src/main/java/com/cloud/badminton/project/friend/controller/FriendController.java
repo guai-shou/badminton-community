@@ -29,13 +29,13 @@ public class FriendController {
         return friendService.getFriendList(uid);
     }
     /*增加好友*/
-    @PostMapping("/friend/add")
-    ResultVo insertFriend(@Validated(Publish.class) @RequestBody Friend friend) {
-        final int i = friendService.insertFriend(friend);
-        if (i > 0)
-            return ResultVo.success();
-        return ResultVo.fail();
-    }
+    //@PostMapping("/friend/add")
+    //ResultVo insertFriend(@Validated(Publish.class) @RequestBody Friend friend) {
+    //    final int i = friendService.insertFriend(friend);
+    //    if (i > 0)
+    //        return ResultVo.success();
+    //    return ResultVo.fail();
+    //}
     /*删除好友*/
     @DeleteMapping("/friend/delete")
     ResultVo deleteFriend(@Validated(Publish.class) @RequestBody Friend friend) {

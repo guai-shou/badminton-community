@@ -1,5 +1,5 @@
 ### 第一种方案(使用原生注解)
-1. 通信连接在Controller定义 /imServer/{用户ID}
+1. 通信连接在Controller定义 /imMsgServer/{用户ID}
 2. 自定义数据结构存储用户会话
 3. 向指定用户发送消息, 支持信息持久化
 

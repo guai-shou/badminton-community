@@ -42,7 +42,7 @@ public class FriendRequestController {
     //        return ResultVo.success();
     //    return ResultVo.fail();
     //}
-    /*删除好友请求*/
+    /*删除已处理的好友请求*/
     @DeleteMapping("/friendRequest/delete")
     ResultVo deleteFriendRequest(@RequestBody List<Long> ids) {
         final int i = friendRequestService.deleteFriendRequest(ids);

@@ -58,7 +58,7 @@ public class CommentController {
 
     /*根据前端查询评论  参数可改*/
     @GetMapping("/comment")
-    List<Comment> getComment(@Validated(Publish.class) @RequestBody Comment comment) {
+    List<Comment> getComment(@Validated @RequestBody Comment comment) {
         return commentService.getComment(comment);
     }
 

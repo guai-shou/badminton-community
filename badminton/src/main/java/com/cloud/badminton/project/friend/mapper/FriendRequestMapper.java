@@ -26,4 +26,6 @@ public interface FriendRequestMapper extends BaseMapper<FriendRequest> {
 
     @Update("update friend_request set is_read=1 where from_uid=#{fromUid} and to_uid=#{toUid}")
     int updateFriendRequestRead(FriendRequest friendRequest);
+
+    int deleteFriendRequest(List<Long> ids);
 }
