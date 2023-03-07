@@ -49,6 +49,7 @@ public class Comment implements Comparable<Comment> {
     @TableField(value = "create_time", fill = FieldFill.INSERT)
     private LocalDateTime createTime;
 
+    @TableField(exist = false)
     private List<Comment> childComment;
 
     @Override

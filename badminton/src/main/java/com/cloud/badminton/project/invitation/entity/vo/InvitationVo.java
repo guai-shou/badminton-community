@@ -1,8 +1,11 @@
 package com.cloud.badminton.project.invitation.entity.vo;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
 /**
  * @author cloud
@@ -13,6 +16,8 @@ import java.time.LocalDateTime;
 @Data
 public class InvitationVo {
     private String title;
-    private LocalDateTime beginTime;
-    private LocalDateTime endTime;
+    @JsonFormat(locale = "zh", timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
+    private String beginTime;
+    @JsonFormat(locale = "zh", timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
+    private String endTime;
 }

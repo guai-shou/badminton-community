@@ -38,7 +38,7 @@ public class CommentServiceImpl extends ServiceImpl<CommentMapper, Comment> impl
         parentComment.forEach(parent -> {
             final List<Comment> childComment = commentList.stream()
                     .sorted()
-                    .filter(comment -> comment.getParentId().equals(parent.getId()))
+                    .filter(comment -> comment.getParentId() != null && comment.getParentId().equals(parent.getId()))
                     .collect(Collectors.toList());
             parent.setChildComment(childComment);
         });

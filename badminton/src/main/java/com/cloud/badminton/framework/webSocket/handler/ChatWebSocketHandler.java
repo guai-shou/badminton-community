@@ -3,6 +3,7 @@ package com.cloud.badminton.framework.webSocket.handler;
 import com.cloud.badminton.framework.webSocket.entity.ChatMessage;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.socket.CloseStatus;
 import org.springframework.web.socket.TextMessage;
@@ -27,7 +28,8 @@ import java.util.concurrent.CopyOnWriteArrayList;
 /*WebSocket第二种实现方式 不支持订阅 配合WebSocketConfigurer*/
 public class ChatWebSocketHandler extends TextWebSocketHandler {
 
-    private final ObjectMapper objectMapper = new ObjectMapper();
+    @Autowired
+    ObjectMapper objectMapper;
 
     private final ConcurrentHashMap<String, WebSocketSession> sessions = new ConcurrentHashMap<>();
 

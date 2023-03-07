@@ -64,7 +64,7 @@ public class UserController {
     }
     /*判断用户名*/
     @GetMapping("/user/getName")
-    ResultVo getUserName(@RequestBody String name) {
+    ResultVo getUserName(@RequestParam("name") String name) {
         final int i = userService.getUserName(name);
         if (i > 0)
             return ResultVo.fail();

@@ -22,8 +22,6 @@ public class SessionPool {
 
     public static Map<Long, Session> sessions = new ConcurrentHashMap<>();
 
-    public static Map<Long, Long> sessionMap = new ConcurrentHashMap<>();
-
     public static void close(Long userId) throws IOException {
         final Session session = sessions.get(userId);
         if (session != null) {

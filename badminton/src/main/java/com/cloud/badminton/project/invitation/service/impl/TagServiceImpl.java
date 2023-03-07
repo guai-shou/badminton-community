@@ -55,6 +55,7 @@ public class TagServiceImpl extends ServiceImpl<TagMapper, Tag> implements TagSe
     /*删除标签与文章关联*/
     @Override
     public int deleteTagMapping(Long invitationId) {
+        if (invitationId == null) return 0;
         return baseMapper.deleteTagMapping(invitationId);
     }
 
@@ -75,11 +76,11 @@ public class TagServiceImpl extends ServiceImpl<TagMapper, Tag> implements TagSe
     /*更新标签与文章关联*/
     @Override
     public int updateTagMapping(Long invitationId, List<Long> tagIds) {
+        if (invitationId == null) return 0;
         // 1. 先删除该文章全部标签
         deleteTagMapping(invitationId);
         // 2. 重新执行插入标签方法
-        insertTagMappingByInvitationId(invitationId, tagIds);
-        return 0;
+        return insertTagMappingByInvitationId(invitationId, tagIds);
     }
 
     /*根据文章ID获取标签*/

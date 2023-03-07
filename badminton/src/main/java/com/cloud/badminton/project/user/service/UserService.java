@@ -26,4 +26,6 @@ public interface UserService extends IService<User> {
     String getUserPassword(String name);
     /*根据前端条件查询用户 参数可加字段*/
     List<UserVo> getUserList(UserVo user);
+    /*根据用户名获取全部信息*/
+    User getUserByName(String name);
 }

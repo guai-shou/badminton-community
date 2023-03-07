@@ -15,7 +15,7 @@ import javax.validation.ConstraintViolationException;
  * Create by 2023/3/1 11:56
  */
 /*统一异常处理*/
-@RestControllerAdvice(basePackages = {"com.cloud.badminton.project"})
+@RestControllerAdvice(basePackages = {"com.cloud.badminton"})
 public class MyControllerExceptionHandler {
 
     @ExceptionHandler({BindException.class})

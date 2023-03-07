@@ -1,5 +1,6 @@
 package com.cloud.badminton.project.invitation.controller;
 
+import com.cloud.badminton.framework.common.check.NestCheck;
 import com.cloud.badminton.framework.common.check.Publish;
 import com.cloud.badminton.framework.common.result.ResultVo;
 import com.cloud.badminton.project.invitation.entity.Comment;
@@ -35,7 +36,7 @@ public class InvitationController {
     }
 
     @PostMapping("/invitation/add")
-    public ResultVo  insertInvitation(@Validated(Publish.class) @RequestBody Invitation invitation) {
+    public ResultVo  insertInvitation(@Validated(NestCheck.class) @RequestBody Invitation invitation) {
         int i = invitationService.insertInvitation(invitation);
         if (i > 0)
             return ResultVo.success();
@@ -43,7 +44,7 @@ public class InvitationController {
     }
 
     @PostMapping("/invitation/update")
-    public ResultVo  updateInvitation(@Validated(Publish.class) @RequestBody Invitation invitation) {
+    public ResultVo  updateInvitation(@Validated(NestCheck.class) @RequestBody Invitation invitation) {
         final int i = invitationService.updateInvitation(invitation);
         if (i > 0)
             return ResultVo.success();

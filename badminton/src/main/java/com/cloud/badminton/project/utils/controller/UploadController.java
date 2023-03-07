@@ -53,7 +53,7 @@ public class UploadController {
             temp.mkdir();
         }
 
-        File localFile = new File(filePath + "\\" + fileName + ".jpg");
+        File localFile = new File(filePath + fileName + ".jpg");
         try {
             file.transferTo(localFile); // 把上传的文件保存至本地
         }catch (Exception e) {

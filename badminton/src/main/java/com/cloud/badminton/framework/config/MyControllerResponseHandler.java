@@ -1,12 +1,14 @@
 package com.cloud.badminton.framework.config;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.cloud.badminton.framework.common.annotation.NoControllerResponseAdvice;
 import com.cloud.badminton.framework.common.exception.APIException;
 import com.cloud.badminton.framework.common.result.PageResultVo;
 import com.cloud.badminton.framework.common.result.ResultCode;
 import com.cloud.badminton.framework.common.result.ResultVo;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -24,9 +26,13 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 @RestControllerAdvice(basePackages = {"com.cloud.badminton.project"})
 public class MyControllerResponseHandler implements ResponseBodyAdvice<Object> {
 
+    @Autowired
+    ObjectMapper objectMapper;
+
     @Override
     public boolean supports(MethodParameter returnType, Class<? extends HttpMessageConverter<?>> converterType) {
-        return !returnType.getGenericParameterType().equals(ResultVo.class);
+        return !returnType.getGenericParameterType().equals(ResultVo.class) ||
+                returnType.hasMethodAnnotation(NoControllerResponseAdvice.class);
     }
 
     @Override
@@ -34,8 +40,7 @@ public class MyControllerResponseHandler implements ResponseBodyAdvice<Object> {
         if (returnType.getGenericParameterType().equals(String.class)) {
             /*如果是String类型转换为JSON对象在写入*/
             try {
-                final ObjectMapper mapper = new ObjectMapper();
-                return mapper.writeValueAsString(body);
+                return objectMapper.writeValueAsString(body);
             } catch (JsonProcessingException e) {
                 throw new APIException(ResultCode.RESPONSE_PACK_ERROR, e.getMessage());
             }

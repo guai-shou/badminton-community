@@ -31,7 +31,8 @@ import java.time.format.DateTimeFormatter;
 @Slf4j
 public class FriendRequestWebSocketController {
 
-    private final ObjectMapper objectMapper = new ObjectMapper();
+    @Autowired
+    ObjectMapper objectMapper;
 
     private final static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 

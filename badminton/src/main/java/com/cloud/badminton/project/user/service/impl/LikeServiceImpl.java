@@ -18,13 +18,13 @@ import javax.swing.*;
 public class LikeServiceImpl extends ServiceImpl<LikeMapper, Like> implements LikeService {
     @Override
     public int insertLike(Like like) {
-        // 用户对文章的点赞
-        return baseMapper.insert(like);
+        // 收藏文章
+        return baseMapper.insertLike(like);
     }
 
     @Override
     public int deleteLike(Like like) {
-        // 取消用户对文章的点赞
+        // 取消收藏文章
         return baseMapper.deleteByInvitationId(like);
     }
 }

@@ -35,7 +35,8 @@ import java.util.concurrent.ConcurrentHashMap;
 @Slf4j
 public class FriendMsgWebSocketController {
 
-    private final ObjectMapper objectMapper = new ObjectMapper();
+    @Autowired
+    ObjectMapper objectMapper;
 
     /*目前没用到*/
     private final static ConcurrentHashMap<String, Object> cache = new ConcurrentHashMap<>();

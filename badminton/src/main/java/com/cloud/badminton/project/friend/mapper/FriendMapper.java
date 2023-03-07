@@ -16,13 +16,13 @@ import java.util.List;
  */
 @Mapper
 public interface FriendMapper extends BaseMapper<Friend> {
-    @Select("select f.id, u.id, u.nickName, u.avatar from friend f, user u where f.uid=#{uid} and f.friend_id=u.id")
+    @Select("select f.id, u.id uid, u.nick_name, u.avatar from friend f, user u where f.uid=#{uid} and f.friend_id=u.id")
     List<FriendVo> getFriendList(Long uid);
 
     @Delete("delete from friend where uid=#{uid} and friend_id = #{friendId}")
     int deleteFriend(Friend friend);
 
-    @Select("select f.id, u.id, u.nickName, u.avatar from friend f, user u where f.friend_id=u.id and u.name=#{name}")
+    @Select("select f.id, u.id uid, u.nick_name, u.avatar from friend f, user u where f.friend_id=u.id and u.name=#{name}")
     List<FriendVo> getFriendByName(String name);
 
     @Select("select count(id) from friend where (uid=#{uid} and friend_id=#{friendId}) or (uid=#{friendId} and friend_id=#{uid})")

@@ -11,6 +11,7 @@ import com.cloud.badminton.project.invitation.service.InvitationService;
 import com.cloud.badminton.project.invitation.service.TagService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Arrays;
 import java.util.List;
@@ -46,36 +47,61 @@ public class InvitationServiceImpl extends ServiceImpl<InvitationMapper, Invitat
     public Invitation getInvitationById(Long id) {
         /*1. 查询指定文章*/
         final Invitation invitation = getById(id);
-        /*2. 补充评论内容*/
-        final List<Comment> commentList = commentService.getCommentListByInvitationId(invitation.getId());
-        invitation.setCommentList(commentList);
-        /*3. 补充标签内容*/
-        final List<Tag> tagList = tagService.getTagListByInvitationId(invitation.getId());
-        invitation.setTag(tagList);
-        return invitation;
+        if (invitation != null) {
+            /*2. 补充评论内容*/
+            final List<Comment> commentList = commentService.getCommentListByInvitationId(invitation.getId());
+            invitation.setCommentList(commentList);
+            /*3. 补充标签内容*/
+            final List<Tag> tagList = tagService.getTagListByInvitationId(invitation.getId());
+            invitation.setTag(tagList);
+            return invitation;
+        }
+        return null;
     }
 
+    @Transactional
     /*插入文章*/
     @Override
     public int insertInvitation(Invitation invitation) {
         /*插入文章, 并插入标签映射*/
-        final int i = baseMapper.insert(invitation);
-        /*更新标签*/
-        final List<Long> tagList = invitation.getTagIds().stream().map(Tag::getId).collect(Collectors.toList());
-        tagService.updateTagMapping(invitation.getId(), tagList);
+        int i = baseMapper.insert(invitation);
+        if (i > 0)
+            i = checkTagAndAdd(invitation);
         return i;
     }
 
+    @Transactional
     /*更新文章*/
     @Override
     public int updateInvitation(Invitation invitation) {
-        final int i = baseMapper.updateById(invitation);
-        /*更新标签*/
-        final List<Long> tagList = invitation.getTagIds().stream().map(Tag::getId).collect(Collectors.toList());
-        tagService.updateTagMapping(invitation.getId(), tagList);
+        int i = baseMapper.updateById(invitation);
+        if (i > 0)
+            i = checkTagAndAdd(invitation);
         return i;
     }
 
+    private int checkTagAndAdd(Invitation invitation) {
+        /*更新标签*/
+        final List<Tag> tagIds = invitation.getTagIds();
+        final List<Long> tagList = tagIds.stream().map(Tag::getId).collect(Collectors.toList());
+        final List<Tag> hasTag = tagService.getTagList();
+        /*如果没有的标签, 则插入标签*/
+        boolean flag;
+        for (Tag tagId : tagIds) {
+            flag = true;
+            for (Tag tag : hasTag) {
+                if (tag.getId().equals(tagId.getId())) {
+                    flag = false;
+                    break;
+                }
+            }
+            if (flag)
+                tagService.insertTag(tagId);
+        }
+        return tagService.updateTagMapping(invitation.getId(), tagList);
+    }
+
+    @Transactional
     /*根据ID删除文章*/
     @Override
     public int deleteInvitationById(Long id) {

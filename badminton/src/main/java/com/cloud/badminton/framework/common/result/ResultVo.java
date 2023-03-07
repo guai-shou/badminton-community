@@ -1,11 +1,17 @@
 package com.cloud.badminton.framework.common.result;
 
+import lombok.Data;
+
+import java.io.Serializable;
+
 /**
  * @author cloud
  * @version 1.0
  * Create by 2023/2/27 13:31
  */
-public class ResultVo {
+@Data
+public class ResultVo implements Serializable {
+
     // 状态码
     private int code;
     //状态信息

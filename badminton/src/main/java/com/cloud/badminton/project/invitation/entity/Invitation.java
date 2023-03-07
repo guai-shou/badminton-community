@@ -1,6 +1,7 @@
 package com.cloud.badminton.project.invitation.entity;
 
 import com.baomidou.mybatisplus.annotation.*;
+import com.cloud.badminton.framework.common.check.NestCheck;
 import com.cloud.badminton.framework.common.check.Publish;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -26,15 +27,15 @@ public class Invitation {
     private Long id;
 
 
-    @NotBlank(message = "标题不能为空", groups = {Publish.class})
+    @NotBlank(message = "标题不能为空", groups = {NestCheck.class})
     private String title;
 
-    @NotBlank(message = "正文内容不能为空", groups = {Publish.class})
+    @NotBlank(message = "正文内容不能为空", groups = {NestCheck.class})
     private String content;
 
     private String img;
 
-    @NotNull(message = "用户ID不能为空", groups = {Publish.class})
+    @NotNull(message = "用户ID不能为空", groups = {NestCheck.class})
     private Long uid;
 
     private Long stars;
@@ -47,11 +48,13 @@ public class Invitation {
     @TableLogic
     private Integer deleted;
 
-    @NotNull(message = "分类ID不能为空", groups = {Publish.class})
+    @NotNull(message = "分类ID不能为空", groups = {NestCheck.class})
     @TableField(exist = false)
     private List<Tag> tagIds;
 
+    @TableField(exist = false)
     private List<Tag> tag;
 
+    @TableField(exist = false)
     private List<Comment> commentList;
 }

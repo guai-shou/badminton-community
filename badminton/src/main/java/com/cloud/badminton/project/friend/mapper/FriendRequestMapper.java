@@ -12,13 +12,13 @@ import java.util.List;
 
 @Mapper
 public interface FriendRequestMapper extends BaseMapper<FriendRequest> {
-    @Select("select f.*, u.nickName receiveName from friend_request f, user u where f.from_uid=#{sendId} and f.to_uid=u.id")
+    @Select("select f.*, u.nick_name receive_name from friend_request f, user u where f.from_uid=#{sendId} and f.to_uid=u.id")
     List<FriendRequestVo> getSendFriendRequest(Long sendId);
 
-    @Select("select f.*, u.nickName sendName from friend_request f, user u where f.to_uid=#{receiveId} and f.from_uid=u.id")
+    @Select("select f.*, u.nick_name send_name from friend_request f, user u where f.to_uid=#{receiveId} and f.from_uid=u.id")
     List<FriendRequestVo> getReceiveFriendRequest(Long receiveId);
 
-    @Insert("insert into friend_request(from_uid, to_uid, status, is_read, requestMsg) VALUE (#{fromUid}, #{toUid}, 0, 0, #{requestMsg})")
+    @Insert("insert into friend_request(from_uid, to_uid, status, is_read, request_msg) VALUE (#{fromUid}, #{toUid}, 0, 0, #{requestMsg})")
     int insertFriendRequest(FriendRequest friendRequest);
 
     @Update("update friend_request set status=#{status} where from_uid=#{fromUid} and to_uid=#{toUid}")

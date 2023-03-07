@@ -5,6 +5,7 @@ import lombok.extern.java.Log;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.reflection.MetaObject;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.annotation.Configuration;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -15,6 +16,7 @@ import java.time.LocalDateTime;
  * Create by 2023/2/27 13:38
  */
 @Slf4j
+@Configuration
 public class MyMetaObjectHandler implements MetaObjectHandler {
 
     @Override

@@ -22,7 +22,7 @@ public interface UserMapper extends BaseMapper<User> {
     @Select("select password from user where name=#{name}")
     String getUserPassword(String name);
 
-    @Select("select u.id, u.name, u.nickName, u.avatar, u.create_time createTime, u.space_bg spaceBg from user u where u.id=#{id}")
+    @Select("select u.id, u.name, u.nick_name, u.avatar, u.create_time createTime, u.space_bg spaceBg from user u where u.id=#{id}")
     UserVo selectById(Long id);
 
     List<UserVo> getUserList(UserVo userVo);
@@ -30,4 +30,7 @@ public interface UserMapper extends BaseMapper<User> {
     int updateUserInfo(User user);
 
     int updateUserPassword(UserPasswordVo userPasswordVo);
+
+    @Select("select * from user where name=#{name}")
+    User getUserByName(String name);
 }

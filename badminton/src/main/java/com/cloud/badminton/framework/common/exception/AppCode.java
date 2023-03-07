@@ -9,7 +9,9 @@ import com.cloud.badminton.framework.common.result.StatusCode;
  */
 public enum AppCode implements StatusCode {
 
-    APP_ERROR(3000, "业务异常");
+    APP_ERROR(3000, "业务异常"),
+    CAPTCHA_ERROR(4000, "验证码异常"),
+    USER_ERROR(5000, "用户异常");
 
 
     private int code;
